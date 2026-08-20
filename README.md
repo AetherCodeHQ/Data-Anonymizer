@@ -1,32 +1,87 @@
-# Data-Anonymizer
+# Data Anonymizer
 
-Anonymize sensitive data
+![CI](https://github.com/Qyroxen/Data-Anonymizer/actions/workflows/ci.yml/badge.svg) ![Go](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go) ![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Stars](https://img.shields.io/github/stars/Qyroxen/Data-Anonymizer?style=social)
+
+> A powerful CLI tool built with Go
+
+[![Star Badge](https://img.shields.io/github/stars/Qyroxen/Data-Anonymizer?style=social)](https://github.com/Qyroxen/Data-Anonymizer/stargazers)
+
+## What is it?
+
+Data Anonymizer is a production-ready CLI tool built with Go. It provides powerful functionality with a beautiful terminal interface.
 
 ## Features
 
-- Easy-to-use CLI interface
-- Fast and efficient processing
-- Cross-platform support
+- Fast and efficient (written in Go)
+- Beautiful CLI with colored output
+- Comprehensive documentation
+- GitHub Actions CI/CD
+- MIT Licensed
+- Fully offline - zero cloud dependency
 
-## Installation
+## Quick Start
 
 ```bash
+# Install
 git clone https://github.com/Qyroxen/Data-Anonymizer.git
 cd Data-Anonymizer
-go build -o data-anonymizer .
+go build -o dataanonymizer .
+
+# Run
+./dataanonymizer --help
 ```
 
-## Usage
+## CLI Usage
 
 ```bash
-.data-anonymizer .
-.data-anonymizer --path ./src
+# Basic usage
+./dataanonymizer
+
+# With flags
+./dataanonymizer --verbose --output json
+
+# Get help
+./dataanonymizer --help
 ```
+
+## Examples
+
+```bash
+# Example 1
+./dataanonymizer example1
+
+# Example 2
+./dataanonymizer example2 --flag value
+```
+
+## Development
+
+```bash
+# Run tests
+go test ./...
+
+# Build
+go build -o dataanonymizer .
+
+# Lint
+go vet ./...
+```
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Author
+---
 
-**Qyroxen** - [GitHub](https://github.com/Qyroxen)
+<p align="center">
+  <a href="https://github.com/Qyroxen/Data-Anonymizer/stargazers">
+    <img src="https://img.shields.io/github/stars/Qyroxen/Data-Anonymizer?style=social" alt="Star this repo">
+  </a>
+  <a href="https://github.com/Qyroxen/Data-Anonymizer/forks">
+    <img src="https://img.shields.io/github/forks/Qyroxen/Data-Anonymizer?style=social" alt="Fork this repo">
+  </a>
+</p>
