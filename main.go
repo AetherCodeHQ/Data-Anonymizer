@@ -1,28 +1,40 @@
-
 package main
 
+// Data-Anonymizer: PII (email, phone, SSN) maskeler
 import (
-	"crypto/sha256"
-	"crypto/sha512"
-	"encoding/hex"
 	"fmt"
-	"io/ioutil"
 	"os"
+	"regexp"
 )
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("usage: Data-Anonymizer <file> [file...]")
+		fmt.Println("usage: data-anonymizer <file>")
 		os.Exit(1)
 	}
-	for _, p := range os.Args[1:] {
-		b, err := ioutil.ReadFile(p)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "read %s: %v\n", p, err)
-			os.Exit(1)
-		}
-		s256 := sha256.Sum256(b)
-		s512 := sha512.Sum512(b)
-		fmt.Printf("%s  sha256=%s  sha512=%s\n", p, hex.EncodeToString(s256[:]), hex.EncodeToString(s512[:]))
+	data, err := os.ReadFile(os.Args[1])
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
 	}
+	s := string(data)
+
+	emailRe := regexp.MustCompile(`[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}`)
+	phoneRe := regexp.MustCompile(`\b\d{3}[-.]?\d{3}[-.]?\d{4}\b`)
+	ssnRe := regexp.MustCompile(`\b\d{3}-\d{2}-\d{4}\b`)
+	ipRe := regexp.MustCompile(`\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b`)
+
+	emailCount := len(emailRe.FindAllString(s, -1))
+	phoneCount := len(phoneRe.FindAllString(s, -1))
+	ssnCount := len(ssnRe.FindAllString(s, -1))
+	ipCount := len(ipRe.FindAllString(s, -1))
+
+	s = emailRe.ReplaceAllString(s, "[EMAIL]")
+	s = phoneRe.ReplaceAllString(s, "[PHONE]")
+	s = ssnRe.ReplaceAllString(s, "[SSN]")
+	s = ipRe.ReplaceAllString(s, "[IP]")
+
+	fmt.Print(s)
+	fmt.Fprintf(os.Stderr, "masked: %d emails, %d phones, %d SSNs, %d IPs\n",
+		emailCount, phoneCount, ssnCount, ipCount)
 }
