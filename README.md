@@ -1,165 +1,89 @@
-# 📊 Data Anonymizer
+# 🔐 Data Anonymizer
 
-![Go](https://img.shields.io/badge/Go-1.21%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-00ADD8?style=for-the-badge)
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![CodeQL](https://img.shields.io/badge/CodeQL-Security-00ADD8?style=for-the-badge)
-![Lint](https://img.shields.io/badge/GolangCI--Lint-Passing-00ADD8?style=for-the-badge)
-![Dependabot](https://img.shields.io/badge/Dependabot-Enabled-025E9C?style=for-the-badge&logo=dependabot&logoColor=white)
+![Go](https://img.shields.io/badge/Go-1.21%2B-00ADD8?style=flat-square&logo=go&logoColor=white)
+![Version](https://img.shields.io/badge/Version-v3.0.0-00ADD8?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![PRs](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)
 
-> Data-Anonymizer - Open source tool by AetherCodeHQ
+> Security tool by [AetherCodeHQ](https://github.com/AetherCodeHQ)
 
-`anonymization` `cli` `data` `golang` `privacy`
+`security` `cryptography` `cli` `golang` `regex`
 
-## What is it?
+---
 
-**Data Anonymizer** is a data tool designed for developers who need fast, reliable, and offline-capable tools. Built with Go for maximum performance and minimal resource usage.
+## What is Data-Anonymizer?
 
-## Why should you care?
+**Data-Anonymizer** is a security-focused tool that analyzes and validates code, configurations, or data for vulnerabilities.
 
-- 🚀 **Fast** — Compiled Go binary, no runtime dependencies
-- 🔒 **Secure** — CodeQL security analysis + Dependabot
-- 🌐 **Offline-first** — Works without internet connection
-- 📦 **Lightweight** — Single binary, minimal footprint
-- 🛠️ **Developer-friendly** — Clean CLI with helpful documentation
+## Features
 
-## Quick Start
+- ✅ Pattern matching and analysis
+- 🚀 **Zero dependencies** — only Go standard library
+- 📦 **Single binary** — compile and run anywhere
+- 🔄 **Offline capable** — no internet required
 
-### Prerequisites
-- Go 1.21 or higher
+## Installation
 
-### Install from source
 ```bash
+# Clone
 git clone https://github.com/AetherCodeHQ/Data-Anonymizer.git
 cd Data-Anonymizer
-go build -o Data-Anonymizer .
+
+# Build
+go build -o data-anonymizer .
+
+# Run
+./data-anonymizer <file>
 ```
 
-### Run
+### Or directly with `go run`:
 ```bash
-./Data-Anonymizer --help
+go run main.go <file>
 ```
 
 ## Usage
 
 ```bash
 # Basic usage
-./Data-Anonymizer --path ./target
+./data-anonymizer <file>
 
-# With options
-./Data-Anonymizer --path ./target --format json --output report.json
-
-# Verbose mode
-./Data-Anonymizer --path ./target --verbose
+# With flags
+./data-anonymizer <file> value <file>
 ```
 
-## Features
+### Example Output
 
-- ✅ High-performance Go implementation
-- ✅ Cross-platform support (Windows, Linux, macOS)
-- ✅ JSON export for CI/CD integration
-- ✅ Colored terminal output
-- ✅ Configurable via YAML/JSON
-- ✅ Comprehensive documentation
-
-## CLI Flags
-
-| Flag | Description | Default |
-|------|-------------|---------|
-| `--path` | Target directory | `.` |
-| `--format` | Output format (json, text, badge) | `text` |
-| `--output` | Output filename | `stdout` |
-| `--verbose` | Enable verbose output | `false` |
-| `--config` | Config file path | - |
-
-## Examples
-
-### Basic scan
-```bash
-./Data-Anonymizer --path ./my-project
+```
+$ ./data-anonymizer <file>
+<file>
 ```
 
-### JSON report
-```bash
-./Data-Anonymizer --path ./my-project --format json --output report.json
+## Project Structure
+
 ```
-
-### CI/CD integration
-```yaml
-# .github/workflows/scan.yml
-- name: Run Data Anonymizer
-  run: ./Data-Anonymizer --path . --format json --output report.json
-```
-
-## Development
-
-```bash
-# Clone the repo
-git clone https://github.com/AetherCodeHQ/Data-Anonymizer.git
-cd Data-Anonymizer
-
-# Build
-go build -o Data-Anonymizer .
-
-# Run tests
-go test ./...
-
-# Lint
-golangci-lint run
+Data-Anonymizer/
+  main.go          # Entry point (41 lines)
+  go.mod            # Go module definition
+  go.sum            # Dependency checksums
+  README.md         # This file
+  LICENSE           # MIT License
+  CHANGELOG.md      # Version history
 ```
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Feel free to open issues or submit pull requests.
 
-## Security
-
-If you discover a security vulnerability, please report it responsibly. See [SECURITY.md](SECURITY.md) for details.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-<p align="center">
-  Built with ❤️ by <a href="https://github.com/AetherCodeHQ">AetherCode</a> • <a href="https://github.com/AetherCode-Core">AetherCode-Core</a>
-</p>
-
-
----
-
-## What's New in v1.1.0
-
-- Professional documentation with badges
-- CI/CD pipeline with GitHub Actions
-- Security analysis with CodeQL
-- Dependency management with Dependabot
-- Code quality with GolangCI-Lint
-- Issue and PR templates
-- Contributing guidelines
-
-## Categories
-
-| Category | Description |
-|----------|-------------|
-| Data Processing & Analytics | This project is part of the AetherCode ecosystem |
-
-## Related Projects
-
-Part of [AetherCode Core](https://github.com/AetherCode-Core) ecosystem.
-
----
-## Changelog
-### v2026.08.23-2208
-- Auto updated
-- Tag: `v2026.08.23-2208`
-
-![Version](https://img.shields.io/badge/Version-v3.0.0-00ADD8?style=for-the-badge)
-
-
-## What's new in v2.0.0
-
-- Clean CLI with subcommands
-- Robust error handling
-- Fast, standard-library-only implementation
+Built with ❤️ by [AetherCodeHQ](https://github.com/AetherCodeHQ)
